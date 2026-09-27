@@ -6,7 +6,7 @@
   import { buildSpectrumBitmap } from '../render/spectrum';
 
   let canvasEl: HTMLCanvasElement;
-  let booted = false;
+  let booted = $state(false);
 
   function renderNow(): void {
     if (!canvasEl) return;
@@ -15,9 +15,9 @@
 
   function boot(): void {
     if (booted) return;
-    booted = true;
     buildSpectrumBitmap();
     renderNow();
+    booted = true;
   }
 
   onMount(() => {
@@ -46,4 +46,10 @@
   });
 </script>
 
-<canvas id="preview" bind:this={canvasEl}></canvas>
+{#if !booted}
+  <div class="canvas-loading" role="status" aria-live="polite">
+    <span class="canvas-spinner"></span>
+    <span>Loading diagram…</span>
+  </div>
+{/if}
+<canvas id="preview" bind:this={canvasEl} class:is-hidden={!booted}></canvas>

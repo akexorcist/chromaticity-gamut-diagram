@@ -90,6 +90,8 @@ footer a:hover{
   min-width:0;
 }
 .canvas-frame{
+  position:relative;
+  aspect-ratio:1 / 1;
   max-width:704px;
   margin:0 auto;
   background:var(--surface);
@@ -100,6 +102,31 @@ footer a:hover{
   display:block;
   width:100%;
   height:auto;
+}
+#preview.is-hidden{
+  visibility:hidden;
+}
+.canvas-loading{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  color:var(--muted);
+  font-size:14px;
+}
+.canvas-spinner{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:3px solid var(--border);
+  border-top-color:var(--accent);
+  animation:canvas-spin 0.8s linear infinite;
+}
+@keyframes canvas-spin{
+  to{ transform:rotate(360deg); }
 }
 .controls-panel{
   flex:0 0 320px;
