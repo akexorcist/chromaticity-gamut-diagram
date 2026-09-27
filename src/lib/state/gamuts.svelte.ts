@@ -1,6 +1,9 @@
 import { buildGamutState, type GamutKey, type GamutState } from '../data/gamuts';
+import { loadCustomizations } from './persistence';
 
 export const gamuts: GamutState[] = $state(buildGamutState());
+
+loadCustomizations(gamuts);
 
 export function findGamut(key: GamutKey): GamutState | undefined {
   return gamuts.find((g) => g.key === key);

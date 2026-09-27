@@ -1,6 +1,7 @@
 <script lang="ts">
   import DiagramCanvas from './lib/components/DiagramCanvas.svelte';
   import ControlsPanel from './lib/components/ControlsPanel.svelte';
+  import StylePopover from './lib/components/StylePopover.svelte';
 </script>
 
 <div class="page">
@@ -24,3 +25,5 @@
     <a href="#" id="sourceLink">Source code on GitHub</a>
   </footer>
 </div>
+
+<StylePopover />
