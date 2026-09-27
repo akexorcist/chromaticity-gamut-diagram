@@ -22,7 +22,7 @@
 
   <footer>
     <span>&copy; Akexorcist, 2026</span>
-    <a href="#" id="sourceLink">Source code on GitHub</a>
+    <a href="https://github.com/akexorcist/chromaticity-gamut-diagram" id="sourceLink" target="_blank" rel="noreferrer">Source code on GitHub</a>
   </footer>
 </div>
 
