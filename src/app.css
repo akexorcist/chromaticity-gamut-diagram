@@ -186,6 +186,10 @@ footer a:hover{
 }
 .pickr-mount .pcr-selection{width:100% !important;}
 .pickr-mount [data-theme="nano"] .pcr-interaction{display:none !important;}
+.pickr-mount .pcr-button{display:none !important;}
+.pickr-mount .pcr-color-preview{grid-row:2 / 3 !important;}
+.pickr-mount .pcr-color-chooser,
+.pickr-mount .pcr-color-opacity{align-self:center !important;}
 .color-text-fields{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
 .ctf-row{display:flex;align-items:center;gap:8px;}
 .ctf-label{width:32px;flex:0 0 auto;font-size:11.5px;color:var(--muted);}
