@@ -1,3 +1,5 @@
+import type { DashArray } from './dashPresets';
+
 export type GamutKey =
   | 'srgb'
   | 'p3'
@@ -17,6 +19,13 @@ export interface GamutDef {
   on: boolean;
 }
 
+/** Runtime record: the static def plus user-customizable, mutable fields. */
+export interface GamutState extends GamutDef {
+  index: number;
+  customColor: string | null;
+  customDash: DashArray | null;
+}
+
 export const GAMUT_DEFS: GamutDef[] = [
   { key: 'srgb',     name: 'sRGB',                primaries: [[0.6400,0.3300],[0.3000,0.6000],[0.1500,0.0600]], white: [0.3127,0.3290], color: '#2F6FE4', colorDark: '#5286E8', on: true  },
   { key: 'p3',       name: 'Display P3 / DCI-P3', primaries: [[0.6800,0.3200],[0.2650,0.6900],[0.1500,0.0600]], white: [0.3127,0.3290], color: '#E2632E', colorDark: '#D96B3A', on: true  },
@@ -26,3 +35,13 @@ export const GAMUT_DEFS: GamutDef[] = [
   { key: 'ntsc',     name: 'NTSC (1953)',         primaries: [[0.6700,0.3300],[0.2100,0.7100],[0.1400,0.0800]], white: [0.3101,0.3162], color: '#0E86A0', colorDark: '#1F9BB3', on: false },
   { key: 'palsecam', name: 'PAL / SECAM',         primaries: [[0.6400,0.3300],[0.2900,0.6000],[0.1500,0.0600]], white: [0.3127,0.3290], color: '#C2185B', colorDark: '#C24A78', on: false }
 ];
+
+/** Builds fresh runtime gamut records from the static defs (index assigned, no customizations). */
+export function buildGamutState(): GamutState[] {
+  return GAMUT_DEFS.map((def, index) => ({
+    ...def,
+    index,
+    customColor: null,
+    customDash: null,
+  }));
+}
