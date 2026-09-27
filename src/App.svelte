@@ -1,5 +1,6 @@
 <script lang="ts">
   import DiagramCanvas from './lib/components/DiagramCanvas.svelte';
+  import ControlsPanel from './lib/components/ControlsPanel.svelte';
 </script>
 
 <div class="page">
@@ -15,7 +16,7 @@
       </div>
     </div>
 
-    <div class="controls-panel"></div>
+    <ControlsPanel />
   </div>
 
   <footer>
