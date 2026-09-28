@@ -1,5 +1,9 @@
 # Chromaticity Gamut Diagram
 
+**[chromaticity.akexorcist.dev](https://chromaticity.akexorcist.dev)**
+
+![Chromaticity Gamut Diagram screenshot](docs/screenshot.webp)
+
 ## Purpose
 
 A chromaticity diagram for comparing RGB color-space gamuts (sRGB, Display
